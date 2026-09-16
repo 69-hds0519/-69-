@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1B4F9B" />
+  <title>한전 수전 합리화 사업단 | 사업 브로셔</title>
+  <meta name="description" content="전기요금 부담은 줄이고, 에너지 효율은 높이는 한전 수전 합리화 사업 브로셔" />
+  <meta property="og:title" content="한전 수전 합리화 사업단 브로셔" />
+  <meta property="og:description" content="전기요금 절감의 새로운 해법" />
+  <meta property="og:image" content="assets/page1.jpg" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    :root {
+      --navy: #1B4F9B;
+      --navy-dark: #123A76;
+      --navy-deep: #0C2C5C;
+      --gold: #F0C445;
+      --paper: #F4F7FC;
+      --text: #16325C;
+      --muted: #5B6F8C;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      min-height: 100%;
+      background: var(--navy-deep);
+      color: #fff;
+      font-family: Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    body { min-height: 100dvh; display: flex; flex-direction: column; }
+    header {
+      padding: calc(18px + env(safe-area-inset-top)) 22px 18px;
+      background: linear-gradient(180deg, var(--navy-deep), var(--navy));
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: var(--gold);
+    }
+    h1 {
+      margin-top: 10px;
+      font-size: clamp(22px, 6vw, 30px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.3;
+    }
+    .lead {
+      margin-top: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.55;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 42px;
+      padding: 0 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-gold { background: var(--gold); color: #1a2a44; }
+    .btn-ghost { background: rgba(255,255,255,0.14); color: #fff; }
+    main {
+      flex: 1;
+      background: #071833;
+      padding: 16px 12px calc(20px + env(safe-area-inset-bottom));
+    }
+    .pager {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .pager button {
+      height: 40px;
+      min-width: 78px;
+      border: 0;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--navy);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .pager button:disabled { opacity: 0.4; cursor: default; }
+    .page-num { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.8); }
+    .sheet {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+    }
+    .sheet img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    footer {
+      padding: 16px 20px calc(18px + env(safe-area-inset-bottom));
+      background: var(--navy);
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.88);
+    }
+    footer strong { display: block; margin-bottom: 4px; }
+    @media (min-width: 980px) {
+      .wrap { width: min(1080px, 100%); margin: 0 auto; }
+      .both { display: grid; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">한전수전합리화사업단</div>
+      <h1>한전 수전 합리화 사업 브로셔</h1>
+      <p class="lead">전기요금 부담은 줄이고, 에너지 효율은 높이는 현명한 선택</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="assets/brochure.pdf" download="한전수전합리화_브로셔.pdf">PDF 저장</a>
+        <a class="btn btn-ghost" href="https://esaver.co.kr/">공식 홈페이지</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <div class="pager">
+        <button type="button" id="prevBtn">이전</button>
+        <span class="page-num" id="pageNum">1 / 2</span>
+        <button type="button" id="nextBtn">다음</button>
+      </div>
+      <div class="sheet">
+        <img id="pageImg" src="assets/page1.jpg" alt="한전 수전 합리화 사업 브로셔 1쪽" />
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">
+      <strong>한전 수전 합리화 사업단</strong>
+      TEL 02-6052-1142 · eer4747@naver.com<br />
+      서울 동대문구 장한로 119, 16층
+    </div>
+  </footer>
+  <script>
+    const pages = [
+      { src: "assets/page1.jpg", alt: "한전 수전 합리화 사업 브로셔 1쪽" },
+      { src: "assets/page2.jpg", alt: "한전 수전 합리화 사업 브로셔 2쪽" }
+    ];
+    let index = 0;
+    const img = document.getElementById("pageImg");
+    const label = document.getElementById("pageNum");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function render() {
+      img.src = pages[index].src;
+      img.alt = pages[index].alt;
+      label.textContent = (index + 1) + " / " + pages.length;
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === pages.length - 1;
+    }
+    prevBtn.addEventListener("click", function () {
+      if (index > 0) { index -= 1; render(); }
+    });
+    nextBtn.addEventListener("click", function () {
+      if (index < pages.length - 1) { index += 1; render(); }
+    });
+    render();
+  </script>
+</body>
+</html>
