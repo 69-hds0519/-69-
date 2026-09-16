@@ -1,0 +1,22 @@
+GitHub Pages 올리는 방법
+========================
+
+이 폴더(github-pages) 안의 파일을 GitHub 저장소 최상단에 올립니다.
+
+반드시 포함해야 하는 파일
+  index.html
+  .nojekyll
+  assets/page1.jpg
+  assets/page2.jpg
+  assets/brochure.pdf
+
+1) GitHub에서 새 저장소 만들기 (예: kepco-brochure)
+2) 위 파일들을 저장소에 업로드
+3) Settings → Pages
+   Source: Deploy from a branch
+   Branch: main / (root)
+4) 저장 후 1~2분 뒤 아래 주소로 열립니다.
+
+   https://아이디.github.io/저장소이름/
+
+QR 코드를 만들 때는 이 공개 주소를 사용하면 됩니다.
