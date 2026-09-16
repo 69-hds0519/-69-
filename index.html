@@ -88,6 +88,25 @@
       background: #071833;
       padding: 16px 12px calc(20px + env(safe-area-inset-bottom));
     }
+    .video-panel {
+      margin-bottom: 22px;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    .video-panel video {
+      display: block;
+      width: 100%;
+      max-height: min(70vh, 640px);
+      background: #000;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 10px;
+    }
     .pager {
       display: flex;
       align-items: center;
@@ -130,7 +149,6 @@
     footer strong { display: block; margin-bottom: 4px; }
     @media (min-width: 980px) {
       .wrap { width: min(1080px, 100%); margin: 0 auto; }
-      .both { display: grid; gap: 16px; }
     }
   </style>
 </head>
@@ -142,12 +160,21 @@
       <p class="lead">전기요금 부담은 줄이고, 에너지 효율은 높이는 현명한 선택</p>
       <div class="actions">
         <a class="btn btn-gold" href="assets/brochure.pdf" download="한전수전합리화_브로셔.pdf">PDF 저장</a>
-        <a class="btn btn-ghost" href=""C:\한전수전합리화홍보영상(1-2 최종)_나레이션수정.mp4">공식 홈페이지</a>
+        <a class="btn btn-ghost" href="#video" id="openVideo">공식 홈페이지</a>
       </div>
     </div>
   </header>
   <main>
     <div class="wrap">
+      <p class="section-label">홍보 영상</p>
+      <div class="video-panel" id="video">
+        <video id="promoVideo" controls playsinline preload="metadata" poster="assets/page1.jpg">
+          <source src="assets/video.mp4" type="video/mp4" />
+          <source src="assets/한전수전합리화홍보영상(1-2 최종)_나레이션수정.mp4" type="video/mp4" />
+          이 브라우저에서는 영상을 재생할 수 없습니다.
+        </video>
+      </div>
+      <p class="section-label">사업 브로셔</p>
       <div class="pager">
         <button type="button" id="prevBtn">이전</button>
         <span class="page-num" id="pageNum">1 / 2</span>
@@ -175,6 +202,7 @@
     const label = document.getElementById("pageNum");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
+    const promo = document.getElementById("promoVideo");
 
     function render() {
       img.src = pages[index].src;
@@ -183,11 +211,21 @@
       prevBtn.disabled = index === 0;
       nextBtn.disabled = index === pages.length - 1;
     }
+
+    function playPromo() {
+      document.getElementById("video").scrollIntoView({ behavior: "smooth", block: "center" });
+      promo.play().catch(function () {});
+    }
+
     prevBtn.addEventListener("click", function () {
       if (index > 0) { index -= 1; render(); }
     });
     nextBtn.addEventListener("click", function () {
       if (index < pages.length - 1) { index += 1; render(); }
+    });
+    document.getElementById("openVideo").addEventListener("click", function (event) {
+      event.preventDefault();
+      playPromo();
     });
     render();
   </script>
